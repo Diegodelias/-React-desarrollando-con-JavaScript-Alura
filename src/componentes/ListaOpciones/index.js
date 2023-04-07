@@ -1,0 +1,29 @@
+
+import "./ListaOpciones.css"
+const ListaOpciones = ()=> {
+const equipos = [
+    "Programacion",
+    "Front End",
+    "Data Science",
+    "Devops",
+    "Ux y Diseño",
+    "Movil",
+    "Innovación y Gestión"
+
+
+]
+return <div className="lista-opciones">
+    <label>Equipos</label>
+    <select>
+        { equipos.map( (equipo, index )=> {
+
+            return <option>{equipo}</option>
+        })}       
+    </select>
+
+
+</div>
+
+}
+
+export default ListaOpciones
