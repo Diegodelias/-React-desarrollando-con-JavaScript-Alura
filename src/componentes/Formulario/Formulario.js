@@ -1,21 +1,25 @@
 import "./Formulario.css"
 import CampoTexto from "../CampoTexto"
 import ListaOpciones from "../ListaOpciones"
+import Boton from "../Boton"
 const Formulario = () => {
+
+    const manejarEnvio = (e) => {
+        e.preventDefault()
+        console.log("Manejar ele envio")
+
+
+    }
     return <section className="formulario">
-            <form>
+            <form onSubmit={manejarEnvio}>
                 <h2>
                     Rellena el formulario para crear el colaborador
                 </h2>
-                <CampoTexto titulo="Nombre" placeholder="Ingresar nombre"/>
-                <CampoTexto titulo="Puesto" placeholder="Ingresar puesto"/>
-                <CampoTexto titulo="Foto" placeholder="Ingresar enlace de Foto"/>
+                <CampoTexto titulo="Nombre" placeholder="Ingresar nombre" required={true}/>
+                <CampoTexto titulo="Puesto" placeholder="Ingresar puesto" required/>
+                <CampoTexto titulo="Foto" placeholder="Ingresar enlace de Foto" required/>
                 <ListaOpciones/>
-
-
-
-
-
+                <Boton>  Crear </Boton>
             </form>
 
 
