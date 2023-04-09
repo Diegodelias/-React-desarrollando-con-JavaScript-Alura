@@ -2,21 +2,21 @@ Clase 1 Curso React como los componentes funcionan
 
 01
 Presentación
-02min
+
 02
 Componente equipo
-14min
+
 03
 Creando equipos
-30min
+
 04
 Para saber más: método map
 05
 Refactorizando el codigo
-08min
+
 06
 Colaborador
-11min
+
 07
 Map vs forEach
 08
