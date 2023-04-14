@@ -40,26 +40,7 @@ function App() {
     nombre: "Jose Gonzalez",
     puesto: "Dev FullStack"
   }])
-  
-  const cambiarMostrar = () => {
-    actualizarMostrar(!mostrarFormulario)
-  }
-
-  const registrarColaborador = (colaborador)=>{
-
-    console.log("Nuevo colaborador")
-    actualizarColaboradores([...colaboradores, colaborador])
-
-  }
-
-    //Eliminar colaborador
-    const eliminarColaborador = () => {
-      console.log("Eliminar colaborador")
-    }
-  
-
-  //Lista de equipos
-  const equipos = [
+  const [equipos, actualizarEquipos] = useState([
     {
       titulo: "Programación",
       colorPrimario: "#57C278",
@@ -96,7 +77,44 @@ function App() {
       colorSecundario: "#FFEEDF"
     }
   ]
+)
+  
+  const cambiarMostrar = () => {
+    actualizarMostrar(!mostrarFormulario)
+  }
 
+  const registrarColaborador = (colaborador)=>{
+
+    console.log("Nuevo colaborador")
+    actualizarColaboradores([...colaboradores, colaborador])
+
+  }
+
+    //Eliminar colaborador
+    const eliminarColaborador = (color, titulo) => {
+      console.log("Eliminar colaborador", color , titulo)
+    }
+  
+    
+     //Actualizar color de equipo
+  const actualizarColor = (color, titulo) => {
+    
+    const equiposActualizados = equipos.map((equipo) => {
+      if (equipo.titulo === titulo) {
+        equipo.colorPrimario = color
+      }
+
+      return equipo
+    })
+
+    actualizarEquipos(equiposActualizados)
+  }
+    // const actualizarColor = (color,titulo) =>{
+    //   console.log("Actualizar: ", color, titulo)
+    // }
+
+  //Lista de equipos
+  
 
   return (
     <div>
@@ -113,6 +131,7 @@ function App() {
       {equipos.map((equipo,key) =>  <Equipo datos={equipo} 
       key={equipo.titulo}  colaboradores={colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo)}
       eliminarColaborador={eliminarColaborador}
+      actualizarColor={actualizarColor}
       
       />)      }
       <Footer/>
